@@ -92,7 +92,37 @@ multi auth for admin step by step
 
     protected $guard = 'admin';
     
-8. duplicatae HomeController to AdminControllr
+8. duplicatae HomeController to AdminControllr and customize
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+class AdminController extends Controller
+{
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth:admin');
+    }
+
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function index()
+    {
+        return view('admin');
+    }
+}
+
+
 9. create route (by test then insite to route group)
       Route::get('/admin', 'AdminController@index')->name('admin.deshboard');
     
