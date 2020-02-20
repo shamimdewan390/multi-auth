@@ -58,18 +58,6 @@ multi auth for admin step by step
             'model' => App\Admin::class,
         ],
       -----
-      
-      'providers' => [
-        'users' => [
-            'driver' => 'eloquent',
-            'model' => App\User::class,
-        ],
-
-        'admins' => [
-            'driver' => 'eloquent',
-            'model' => App\Admin::class,
-        ],
-        -----
         
         'passwords' => [
         'users' => [
